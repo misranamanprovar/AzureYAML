@@ -25,7 +25,7 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'xvfb-run ant -Dprovar.home=$(Provar_Home) -f AzureYaml/ANT/build.xml'
+    script: 'xvfb-run ant -Dprovar.home=$(Provar_Home) -f $(build_file)'
 
 
 - task: PublishTestResults@2
