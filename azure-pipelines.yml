@@ -17,9 +17,10 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo 'No Provar Home found hence Unzipping the Provar Ant Files'
+      
                         if [ ! -d ProvarHome ];
                         then
+                          echo 'No Provar Home found hence Unzipping the Provar Ant Files'
                           curl -O https://download.provartesting.com/2.0.5/Provar_ANT_2.0.5.04.zip
                           echo 'Unzipped the Provar Ant Files'
                           unzip Provar_ANT_2.0.5.04.zip -d ProvarHome;
