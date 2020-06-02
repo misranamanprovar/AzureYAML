@@ -31,15 +31,21 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
+    script: 'cd $(System.DefaultWorkingDirectory)/AzureYaml/ANT'
+
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
     script: 'xvfb-run ant -Dprovar.home=$(Provar_Home) -f $(build_file)'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'AzureYAML/ANT/Results/JUunit.xml'
+    testResultsFiles: 'AzureYaml/ANT/Results/JUnit.xml'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'AzureYAML/ANT/Results'
+    PathtoPublish: 'AzureYaml/ANT/Results'
     ArtifactName: 'ResultsDirectory'
     publishLocation: 'Container'
 
